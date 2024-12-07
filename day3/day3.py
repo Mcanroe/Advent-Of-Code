@@ -10,4 +10,4 @@ with p.open("r") as src:
     for i in range(len(mult_list)):
         match = re.findall(r"\d+",mult_list[i])    
         mult_sum = mult_sum + (int(match[0]) * int(match[1]))
-        print(mult_sum)
+    print(mult_sum)
