@@ -9,5 +9,6 @@ with p.open("r") as src:
     mult_list = re.findall("mul\(\d+,\d+\)",test)
     for i in range(len(mult_list)):
         match = re.findall(r"\d+",mult_list[i])    
+        # print(match)
         mult_sum = mult_sum + (int(match[0]) * int(match[1]))
         print(mult_sum)
