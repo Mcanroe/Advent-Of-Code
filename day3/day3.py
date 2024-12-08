@@ -2,13 +2,22 @@ from pathlib import Path
 import re
 
 p = Path("day3\day3input.txt")
-mult_sum = 0
+csum = 0
+pos = 0
+
+
+def cumu_sum (lst):
+    global csum
+    for i in range(len(lst)):
+        match = re.findall("\d+", lst[i])
+        csum = csum + (int(match[0]) * int(match[1]))
+    return csum
 
 with p.open("r") as src:
-    test = src.read()
-    mult_list = re.findall("mul\(\d+,\d+\)",test)
-    for i in range(len(mult_list)):
-        match = re.findall(r"\d+",mult_list[i])    
-        # print(match)
-        mult_sum = mult_sum + (int(match[0]) * int(match[1]))
-        print(mult_sum)
+    file = src.read()
+    pattern = re.findall("mul\(\d+,\d+\)", file)
+    part1 = cumu_sum(pattern)
+    print(part1)
+    
+# can't get my head around how to do the second part
+# I think it should use an iterator and if conditions to match "pattern" when do is detected and do nothing when its don't
