@@ -14,10 +14,9 @@ def cumu_sum (lst):
     return csum
 
 with p.open("r") as src:
-    file = src.read()
-    pattern = re.findall("mul\(\d+,\d+\)", file)
-    part1 = cumu_sum(pattern)
-    print(part1)
-    
-# can't get my head around how to do the second part
-# I think it should use an iterator and if conditions to match "pattern" when do is detected and do nothing when its don't
+    test = src.read()
+    mult_list = re.findall("mul\(\d+,\d+\)",test)
+    for i in range(len(mult_list)):
+        match = re.findall(r"\d+",mult_list[i])    
+        mult_sum = mult_sum + (int(match[0]) * int(match[1]))
+        print(mult_sum)
